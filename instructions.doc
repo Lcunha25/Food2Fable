@@ -13,6 +13,7 @@ Truffle:
 truffle init
 truffle compile
 truffle migrate
+truffle console
 
 Make sure network is defined one truffle.js
 
@@ -40,4 +41,12 @@ web3.eth.getTransactionReceipt('enter transaction hash here')
 Get hashed results from contract:
 web3.eth.getCode('contract address', function(err, code){ console.log(code)})
 
-farmInformation.deployed().then(function(contractInstance) {contractInstance.totalVotesFor.call('LAURA').then(function(v) {console.log(v)})})
+farmInformation.deployed().then(function(test) {
+    test.greet.call('LAURA').then(function(v) {
+        console.log(v)
+    })
+})
+
+To define the abi decoder:
+const abiDecoder = require('abi-decoder')
+abiDecoder.getABIs("enter const here")
