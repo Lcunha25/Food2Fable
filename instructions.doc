@@ -28,8 +28,14 @@ var eth = new Eth('ws://localhost:8545');
 var Web3 = require('web3');
 var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
 
-To interact with deployed contracts:
+To call string from contract when it is already deployed:
+farmInformation.deployed().then(function(instance) {return instance.greet.call()})
 
+To iput new string with setGreeting on already existing contract:
+farmInformation.deployed().then(function(instance) {return instance.setGreeting("WOWWOWWOWOWOW I work")})
+
+
+To interact with deployed contracts:
 var contract = require("truffle-contract");
 
 Shows accounts from Ganache:
@@ -40,12 +46,6 @@ web3.eth.getTransactionReceipt('enter transaction hash here')
 
 Get hashed results from contract:
 web3.eth.getCode('contract address', function(err, code){ console.log(code)})
-
-farmInformation.deployed().then(function(test) {
-    test.greet.call('LAURA').then(function(v) {
-        console.log(v)
-    })
-})
 
 To define the abi decoder:
 const abiDecoder = require('abi-decoder')
