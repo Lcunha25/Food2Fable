@@ -1,0 +1,43 @@
+Installs(npm):
+npm install truffle
+npm install web3
+npm install openzeppelin-solidity
+sudo npm install -d openzeppelin-solidity
+npm install truffle-contract
+npm install abi-decoder
+
+
+
+Truffle:
+
+truffle init
+truffle compile
+truffle migrate
+
+Make sure network is defined one truffle.js
+
+
+To connect to Node use truffle console it will capture the running network.
+
+(Web3 and Eth):
+
+var Eth = require('web3-eth');
+var eth = new Eth('ws://localhost:8545');
+
+var Web3 = require('web3');
+var web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+
+To interact with deployed contracts:
+
+var contract = require("truffle-contract");
+
+Shows accounts from Ganache:
+web3.eth.getAccounts(console.log)
+
+See hash transaction:
+web3.eth.getTransactionReceipt('enter transaction hash here')
+
+Get hashed results from contract:
+web3.eth.getCode('contract address', function(err, code){ console.log(code)})
+
+farmInformation.deployed().then(function(contractInstance) {contractInstance.totalVotesFor.call('LAURA').then(function(v) {console.log(v)})})
