@@ -54,13 +54,20 @@ var abi = [
 		"type": "function"
 	}
 ];
+
+var walletInput = {};
+function getWallet(){
+	walletInput.values = $("#first-name").val();
+}
+$(".login100-form-btn").click(getWallet);
+
 function setGreeting1(){
     farmInfo = $("#farmInfo").val();
     var _greeting = farmInfo;
     var farminformationContract = web3.eth.contract(abi);
-    var contractInstance = farminformationContract.at("0x5a452ac64cb3f61e236c38043b11408ef61281eb"); //enter contract number here
+    var contractInstance = farminformationContract.at("0x9deb438c60bde2020ba19c69c5063051c0c79107"); //enter contract number here
     var transactionObj = {
-        from: '0xE71A1Cb389dc5B877E4c032492a2c83AC522460a' //only address that deployed the contract can interact with contract
+        from: walletInput.values //only address that deployed the contract can interact with contract
     }
     contractInstance.setGreeting(_greeting, transactionObj, function(){
         var callForInfo = contractInstance.greet();
