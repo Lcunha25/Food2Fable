@@ -6,7 +6,8 @@ sudo npm install -d openzeppelin-solidity
 npm install truffle-contract
 npm install abi-decoder
 
-
+To select which wallet the contract will be uploaded from (different farmers):
+Go to truffle.js and upload the farmer address before compiling and migrating code.
 
 Truffle:
 
@@ -33,7 +34,6 @@ farmInformation.deployed().then(function(instance) {return instance.greet.call()
 
 To iput new string with setGreeting on already existing contract:
 farmInformation.deployed().then(function(instance) {return instance.setGreeting("WOWWOWWOWOWOW I work")})
-
 
 To interact with deployed contracts:
 var contract = require("truffle-contract");
