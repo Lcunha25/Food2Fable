@@ -1,5 +1,7 @@
-pragma solidity ^0.4.18;
-contract farmInformation         // The contract definition. A constructor of the same name will be automatically called on contract creation. 
+pragma solidity ^0.4.24;
+import "../node_modules/openzeppelin-solidity/contracts/ownership/Ownable.sol";
+
+contract farmInformation is Ownable         // The contract definition. A constructor of the same name will be automatically called on contract creation. 
 {
     address creator;     // At first, an empty "address"-type variable of the name "creator". Will be set in the constructor.
     string greetingString ;     // At first, an empty "string"-type variable of the name "greeting". Will be set in constructor and can be changed.
@@ -20,7 +22,7 @@ contract farmInformation         // The contract definition. A constructor of th
         return block.number;
     }
     
-    function setGreeting(string _newgreeting)
+    function setGreeting(string _newgreeting) public onlyOwner
     {
         greetingString = strConcat(greetingString,' ', _newgreeting, ' ');
     }

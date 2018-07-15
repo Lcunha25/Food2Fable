@@ -50,3 +50,7 @@ web3.eth.getCode('contract address', function(err, code){ console.log(code)})
 To define the abi decoder:
 const abiDecoder = require('abi-decoder')
 abiDecoder.getABIs("enter const here")
+
+JS:
+-change from to reflect on wallet we want to use to deploy the contract
+-Change contractInstances to choose which contract we are compiling on top.

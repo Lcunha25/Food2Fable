@@ -56,13 +56,14 @@ var abi = [
 ];
 function setGreeting1(){
     farmInfo = $("#farmInfo").val();
-    var _greeting = farmInfo ;
+    var _greeting = farmInfo + '\n';
     var farminformationContract = web3.eth.contract(abi);
-    var contractInstance = farminformationContract.at("0x3Bc9Aaa28670001A187aB1e616eCB825Eb2E7E88");
+    var contractInstance = farminformationContract.at("0x06c667A481921F1b8897D5Fe6DAbE4aC13B46424");
     var transactionObj = {
-        from: '0xE71A1Cb389dc5B877E4c032492a2c83AC522460a'
+        from: '0xe638a5BB494A2eE91cB6697c172Bf9E07C548432'
     }
     contractInstance.setGreeting(_greeting, transactionObj, function(){
-        var test = contractInstance.greet();
+        var callForInfo = contractInstance.greet();
+        $('#input-1').append(callForInfo);
     })
 };
