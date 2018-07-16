@@ -1,0 +1,5 @@
+# ignore these files when reading system language:
+css
+vendor
+images
+fonts
