@@ -1,7 +1,7 @@
 # Macho Hacks 1st place, Jul 2018:
 This project was built for the MachoHacks hackathon. With around 20 teams pitching their ideas by the end of the weekend we were selected as first place by the judges and by the peoples choice award.
 
-#Usecase:
+# Usecase:
 This project was built to demonstrate the working process from begining to end of a organic supply chain where the farmers can input informations about their crops, how it's grown, who is transporting it to the manufacturer...
 On the other end, the users can interact with a chatbot that collects the questions asked and filters answers.
 Both the chatbot and the farmer side are uploaded to the blockchain and become immutable
